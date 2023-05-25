@@ -6,5 +6,5 @@ Some solutions are taken or adapted from this [link(代码随想录)](https://pr
 Please note that I am using chinese for the comments & explanations in the solutions.
 
 ## Updates (on 25/05/2023)
-- Linked List (链表) 
+- Link List (链表) The implementation code of link list is taken from [here](https://blog.csdn.net/ccblogger/article/details/81176338).
 - Recursion (回溯)
