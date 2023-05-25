@@ -21,6 +21,7 @@ private:
             if(isValidIP(s, startIndex, i)){
                 s.insert(s.begin()+i+1, '.');
                 dotNum++;
+                // 这里的下一层递归是从i+2开始，因为插入了一个“,”
                 backtracking(s, i + 2, dotNum);
                 dotNum--;
                 s.erase(s.begin()+i+1);
