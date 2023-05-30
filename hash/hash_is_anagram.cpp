@@ -47,7 +47,7 @@ public:
     }
 };
 
-// 直接进行比较。
+// 使用数组直接先后统计两个字符串中每个字母出现的次数，第一次++第二次--，这样最后如果26个位置都为0则说明对应位置的字母全都被抵消掉了，返回true.
 class Solution_ {
 public:
     bool isAnagram(string s, string t) {
