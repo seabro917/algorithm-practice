@@ -1,54 +1,54 @@
-// #include <iostream>
-// #include <vector>
-// #include <set>
-// #include <map>
-// using namespace std;
+#include <iostream>
+#include <vector>
+#include <set>
+#include <map>
+using namespace std;
 
-// class Solution {
-// public:
-//     bool isAnagram(string s, string t) {
-//         // 两个存储对应字符串内每个字母出现次数的map.
-//         std::map<char, int> map_1;
-//         std::map<char, int> map_2;
-//         // 将第一个字符串的字母压入map.
-//         for(int i = 0 ; i < s.length(); i++){
-//             if (map_1.count(s[i]) == 0){
-//                 map_1.insert(pair <char, int> (s[i], 1));
-//             }
-//             else{
-//                 std::map<char, int>::iterator itr_find = map_1.find(s[i]);
-//                 // second代表的就是value值，first代表的是key的值。(注意要用迭代器)
-//                 itr_find->second = itr_find->second + 1;
-//             }
-//         }   
-//         // 将第二个字符串的字母压入map.
-//         for(int i = 0 ; i < t.length(); i++){
-//             if (map_2.count(t[i]) == 0){
-//                 map_2.insert(pair <char, int> (t[i], 1));
-//             }
-//             else{
-//                 std::map<char, int>::iterator itr_find = map_2.find(t[i]);
-//                 // second代表的就是value值，first代表的是key的值。(注意要用迭代器)
-//                 itr_find->second = itr_find->second + 1;
-//             }
-//         }  
-//         // 如果字母种类不同则直接返回false.
-//         if(map_1.size() != map_2.size()){
-//             return false;
-//         }
-//         // 本来C++标准库的map的key值就是排好序的，所以直接比较是否相等即可。
-//         for (std::map<char, int>::iterator it_1 = map_1.begin(), it_2 = map_2.begin(); it_1 != map_1.end() && it_2 != map_2.end() ; it_1++, it_2++){
-//             if(it_1->first != it_2->first || it_1->second != it_2->second){
-//                 return false;
-//             }
-//         }
-//         return true;
-//     }
-// };
-
-
-
+// 暴力用map统计每个字符出现次数最后进行比较。
 class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        // 两个存储对应字符串内每个字母出现次数的map.
+        std::map<char, int> map_1;
+        std::map<char, int> map_2;
+        // 将第一个字符串的字母压入map.
+        for(int i = 0 ; i < s.length(); i++){
+            if (map_1.count(s[i]) == 0){
+                map_1.insert(pair <char, int> (s[i], 1));
+            }
+            else{
+                std::map<char, int>::iterator itr_find = map_1.find(s[i]);
+                // second代表的就是value值，first代表的是key的值。(注意要用迭代器)
+                itr_find->second = itr_find->second + 1;
+            }
+        }   
+        // 将第二个字符串的字母压入map.
+        for(int i = 0 ; i < t.length(); i++){
+            if (map_2.count(t[i]) == 0){
+                map_2.insert(pair <char, int> (t[i], 1));
+            }
+            else{
+                std::map<char, int>::iterator itr_find = map_2.find(t[i]);
+                // second代表的就是value值，first代表的是key的值。(注意要用迭代器)
+                itr_find->second = itr_find->second + 1;
+            }
+        }  
+        // 如果字母种类不同则直接返回false.
+        if(map_1.size() != map_2.size()){
+            return false;
+        }
+        // 本来C++标准库的map的key值就是排好序的，所以直接比较是否相等即可。
+        for (std::map<char, int>::iterator it_1 = map_1.begin(), it_2 = map_2.begin(); it_1 != map_1.end() && it_2 != map_2.end() ; it_1++, it_2++){
+            if(it_1->first != it_2->first || it_1->second != it_2->second){
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+// 直接进行比较。
+class Solution_ {
 public:
     bool isAnagram(string s, string t) {
         int record[26] = {0};
