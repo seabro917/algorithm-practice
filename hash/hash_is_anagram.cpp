@@ -4,68 +4,58 @@
 #include <map>
 using namespace std;
 
-// 暴力用map统计每个字符出现次数最后进行比较。
+// 同样思路，直接将每个vector的数字存入map，之后遍历其中一个map，如果当前遍历到的key也存在于第二个map中，则说明该元素应该被放入交集内。
 class Solution {
 public:
-    bool isAnagram(string s, string t) {
-        // 两个存储对应字符串内每个字母出现次数的map.
-        std::map<char, int> map_1;
-        std::map<char, int> map_2;
-        // 将第一个字符串的字母压入map.
-        for(int i = 0 ; i < s.length(); i++){
-            if (map_1.count(s[i]) == 0){
-                map_1.insert(pair <char, int> (s[i], 1));
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> result; 
+        std::map<int, int> map_1;
+        std::map<int, int> map_2;
+
+        // 将第一个vector的数字压入map.
+        for(int i = 0 ; i < nums1.size(); i++){
+            if (map_1.count(nums1[i]) == 0){
+                map_1.insert(pair <int, int> (nums1[i], 1));
             }
             else{
-                std::map<char, int>::iterator itr_find = map_1.find(s[i]);
+                std::map<int, int>::iterator itr_find = map_1.find(nums1[i]);
                 // second代表的就是value值，first代表的是key的值。(注意要用迭代器)
                 itr_find->second = itr_find->second + 1;
             }
         }   
-        // 将第二个字符串的字母压入map.
-        for(int i = 0 ; i < t.length(); i++){
-            if (map_2.count(t[i]) == 0){
-                map_2.insert(pair <char, int> (t[i], 1));
+        // 将第二个vector的数字压入map.
+        for(int i = 0 ; i < nums2.size(); i++){
+            if (map_2.count(nums2[i]) == 0){
+                map_2.insert(pair <int, int> (nums2[i], 1));
             }
             else{
-                std::map<char, int>::iterator itr_find = map_2.find(t[i]);
+                std::map<int, int>::iterator itr_find = map_2.find(nums2[i]);
                 // second代表的就是value值，first代表的是key的值。(注意要用迭代器)
                 itr_find->second = itr_find->second + 1;
             }
         }  
-        // 如果字母种类不同则直接返回false.
-        if(map_1.size() != map_2.size()){
-            return false;
-        }
-        // 本来C++标准库的map的key值就是排好序的，所以直接比较是否相等即可。
-        for (std::map<char, int>::iterator it_1 = map_1.begin(), it_2 = map_2.begin(); it_1 != map_1.end() && it_2 != map_2.end() ; it_1++, it_2++){
-            if(it_1->first != it_2->first || it_1->second != it_2->second){
-                return false;
+        for(std::map<int, int>::iterator it = map_1.begin(); it != map_1.end(); it++){
+            if(map_2.count(it->first) != 0){
+                result.push_back(it->first);
             }
         }
-        return true;
-    }
+        return result;
+    }   
 };
 
-// 使用数组直接先后统计两个字符串中每个字母出现的次数，第一次++第二次--，这样最后如果26个位置都为0则说明对应位置的字母全都被抵消掉了，返回true.
+
+// 直接从两个输入的vector构造set
 class Solution_ {
 public:
-    bool isAnagram(string s, string t) {
-        int record[26] = {0};
-        for (int i = 0; i < s.size(); i++) {
-            // 并不需要记住字符a的ASCII，只要求出一个相对数值就可以了
-            record[s[i] - 'a']++;
-        }
-        for (int i = 0; i < t.size(); i++) {
-            record[t[i] - 'a']--;
-        }
-        for (int i = 0; i < 26; i++) {
-            if (record[i] != 0) {
-                // record数组如果有的元素不为零0，说明字符串s和t 一定是谁多了字符或者谁少了字符。
-                return false;
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> result_set; // 存放结果，之所以用set是为了给结果集去重
+        unordered_set<int> nums_set(nums1.begin(), nums1.end());
+        for (int num : nums2) {
+            // 发现nums2的元素 在nums_set里又出现过
+            if (nums_set.find(num) != nums_set.end()) {
+                result_set.insert(num);
             }
         }
-        // record数组所有元素都为零0，说明字符串s和t是字母异位词
-        return true;
+        return vector<int>(result_set.begin(), result_set.end());
     }
 };
