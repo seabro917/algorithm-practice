@@ -4,6 +4,7 @@
 #include <map>
 using namespace std;
 
+// 最后发现其实这个用set就行了。。。不需要map
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
