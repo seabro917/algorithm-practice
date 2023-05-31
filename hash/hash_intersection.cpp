@@ -6,7 +6,7 @@ using namespace std;
 
 
 // 直接从两个输入的vector构造set
-class Solution_ {
+class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
         unordered_set<int> result_set; // 存放结果，之所以用set是为了给结果集去重
