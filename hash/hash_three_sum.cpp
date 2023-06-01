@@ -24,6 +24,7 @@ public:
                 continue;
             }
             while(left_ptr < right_ptr){     
+                // 这里注意一定是判断完当前组合符合条件后,再去重, 不然会漏掉0,0,0的情况.
                 if(num[left_ptr] + num[right_ptr] == 0 - cur_value && left_ptr < num.size()-1){
                     // cout << num[left_ptr] << endl;
                     result.push_back({num[i], num[left_ptr], num[right_ptr]});
