@@ -23,8 +23,7 @@ public:
             if(i != 0 && num[i] == num[i-1]){
                 continue;
             }
-            while(left_ptr < right_ptr){ 
-                 cout << right_ptr << endl;           
+            while(left_ptr < right_ptr){         
                 if(num[left_ptr] + num[right_ptr] == 0 - cur_value && left_ptr < num.size()-1){
                     // cout << num[left_ptr] << endl;
                     result.push_back({num[i], num[left_ptr], num[right_ptr]});
