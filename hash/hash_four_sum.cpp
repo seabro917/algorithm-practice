@@ -44,7 +44,7 @@ public:
                 while (left_ptr < right_ptr)
                 {
                     // 这里注意一定是判断完当前组合符合条件后,再去重, 不然会漏掉四个连续值的情况.
-                    // 强转成long类型-->只是为了过leetcode纯恶心人的例子。
+                    // 强转成long类型-->只是为了过leetcode纯恶心人的测试用例。
                     if ((long)num[left_ptr] + (long)num[right_ptr] == (long)target - (long)num[i] - (long)num[j] && left_ptr < num.size() - 1)
                     {
                         // cout << num[left_ptr] << endl;
