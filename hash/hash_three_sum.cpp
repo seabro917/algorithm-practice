@@ -23,7 +23,7 @@ public:
             if(i != 0 && num[i] == num[i-1]){
                 continue;
             }
-            while(left_ptr < right_ptr){         
+            while(left_ptr < right_ptr){     
                 if(num[left_ptr] + num[right_ptr] == 0 - cur_value && left_ptr < num.size()-1){
                     // cout << num[left_ptr] << endl;
                     result.push_back({num[i], num[left_ptr], num[right_ptr]});
@@ -37,17 +37,17 @@ public:
                     }
                     left_ptr++;
                     right_ptr--;
-                    continue;
+                    // continue;
                 }
                 // 当前两个指针对应的和大于目标值。
                 if(num[left_ptr] + num[right_ptr] > 0 - cur_value){
                     right_ptr--;
-                    continue;
+                    // continue;
                 }
                 // 当前两个指针对应的和小于目标值。
                 if(num[left_ptr] + num[right_ptr] < 0 - cur_value){
                     left_ptr++;
-                    continue;
+                    // continue;
                 }
             }
         }
