@@ -9,4 +9,4 @@ Please note that I am using Chinese for the comments & explanations in the solut
 - Link List (链表) The implementation code of the link list is taken from [here](https://blog.csdn.net/ccblogger/article/details/81176338).
 - Recursion (回溯)
 - Hash (哈希)
-- Array and search (数组与查找)
+- Array, search and double pointers (数组，查找以及双指针法)
