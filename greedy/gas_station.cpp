@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// 图解法。
 class Solution {
 public:
     int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
@@ -27,7 +28,7 @@ public:
 };
 
 
-
+// 贪心：类似的代码，不同的理解方式。
 class Solution {
 public:
     int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
