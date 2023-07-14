@@ -13,3 +13,4 @@ Please note that I am using Chinese for the comments & explanations in the solut
 - Hash (哈希)
 - Array, search, and double pointers (数组，查找以及双指针法)
 - Greedy (贪心算法)
+- String (字符串)
