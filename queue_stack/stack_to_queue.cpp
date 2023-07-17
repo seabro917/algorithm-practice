@@ -32,6 +32,7 @@ public:
     int peek() {
         int temp = this->pop();
         // 这里要注意不是this->push()，因为我们相当于是要还原现场，是从stack_out最上方弹出去的，所以要放回这个栈的最上方，而不是stack_in的最上方。
+        // 还原现场！
         stack_out.push(temp);
         return temp;
     }
