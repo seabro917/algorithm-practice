@@ -56,4 +56,39 @@ public:
 };
 
 
-// 单调栈的解法思路有点乱。。。下次看到的时候再梳理了。。。
+class Solution {
+public:
+    // 单调栈解法，其实处理逻辑和接雨水一模一样只是单调栈里面元素的递增递减性反了一下，而且这里要对原输入数组预处理一下。
+    int largestRectangleArea(vector<int>& heights) {
+        int result = 0;
+        stack<int> st;
+        // 在原数组的开头和尾部分别增加0是为了考虑并且处理原输入数组为单调递增或者单调递减的情况。
+        heights.insert(heights.begin(), 0); // 数组头部加入元素0
+        heights.push_back(0); // 数组尾部加入元素0
+        st.push(0);
+
+        // 第一个元素已经入栈，从下标1开始
+        for (int i = 1; i < heights.size(); i++) {
+            if (heights[i] > heights[st.top()]) { 
+                st.push(i);
+            } else if (heights[i] == heights[st.top()]) { 
+                st.pop(); 
+                st.push(i);
+            } else { 
+                while (!st.empty() && heights[i] < heights[st.top()]) { 
+                    int mid = st.top();
+                    st.pop();
+                    if (!st.empty()) {
+                        int left = st.top();
+                        int right = i;
+                        int w = right - left - 1;
+                        int h = heights[mid];
+                        result = max(result, w * h);
+                    }
+                }
+                st.push(i);
+            }
+        }
+        return result;
+    }
+};
