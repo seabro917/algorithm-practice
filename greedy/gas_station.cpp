@@ -38,6 +38,8 @@ public:
         for (int i = 0; i < gas.size(); i++){
             tank += gas[i] - cost[i];
             total_sum += gas[i] - cost[i];
+            // 从当前位置到当前位置之后第一个使tank变成小于0的位置之间都不可能是起点。
+            //     ---->因为你想你以当前位置为起点的时候，这段距离之间任意一点的tank肯定大于0，如果从这段距离之间任意一个点开始，说明你把那个点的tank设为0（起点tank为0），那肯定到这个点的时候更小于0了啊。
             if (tank < 0){
                 tank = 0;
                 start_point = i + 1;
