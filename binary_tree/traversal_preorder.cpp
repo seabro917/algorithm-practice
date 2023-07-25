@@ -9,6 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+// 迭代版本
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
@@ -34,6 +35,7 @@ public:
 };
 
 
+// 递归版本
 class Solution {
 private:
     void traversal(TreeNode* node, vector<int>& res) {

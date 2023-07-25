@@ -11,7 +11,7 @@
  */
 
 
- 
+// 迭代版本
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
@@ -25,10 +25,11 @@ public:
                 st.push(cur);
                 cur = cur->left;
             } else {
-                // 空了，说明当前左没有了，上一个不为空的结点（栈顶）应该为中间结点，按照左中右的顺序处理，应该将栈顶元素加入结果数组。
-                res.push_back(st.top()->val);
-                cur = st.top()->right;  
-                st.pop();       
+                // 空了，说明当前左没有了，上一个不为空的结点（栈顶）应该为中间结点，按照左中右的顺序处理，应该将栈顶元素（中）加入结果数组。
+                cur = st.top();
+                res.push_back(cur->val);
+                st.pop();
+                cur = cur->right;     
             }
         }
         return res;
@@ -36,20 +37,21 @@ public:
 };
 
 
-// class Solution {
-// private:
-//     void traversal(TreeNode* node, vector<int>& res) {
-//         if (node == nullptr) {
-//             return;
-//         }
-//         traversal(node->left, res);
-//         res.push_back(node->val);
-//         traversal(node->right, res);
-//     }
-// public:
-//     vector<int> inorderTraversal(TreeNode* root) {
-//         vector<int> res;
-//         traversal(root, res);
-//         return res;
-//     }
-// };
+// 递归版本
+class Solution {
+private:
+    void traversal(TreeNode* node, vector<int>& res) {
+        if (node == nullptr) {
+            return;
+        }
+        traversal(node->left, res);
+        res.push_back(node->val);
+        traversal(node->right, res);
+    }
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> res;
+        traversal(root, res);
+        return res;
+    }
+};

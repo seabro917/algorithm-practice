@@ -10,6 +10,7 @@
  * };
  */
 
+// 迭代版本
 class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
@@ -37,6 +38,7 @@ public:
     }
 };
 
+// 递归版本
 class Solution {
 private:
     void traversal(TreeNode* node, vector<int>& res) {
