@@ -31,6 +31,7 @@ public:
                 st.push(temp->right);
             }
         }
+        // 上面得到了中右左的遍历结果，这里再对结果整体翻转一次即得到左右中的结果，即后续结果。
         reverse(res.begin(), res.end());
         return res;
     }
