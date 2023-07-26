@@ -10,7 +10,7 @@
  * };
  */
 class Solution {
-public:
+public:  
     int maxDepth(TreeNode* root) {
         queue<TreeNode*> que;
         int res = 0;
