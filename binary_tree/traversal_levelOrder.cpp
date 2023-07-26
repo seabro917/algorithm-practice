@@ -34,6 +34,7 @@ public:
                 if (cur->right) {
                     que.push(cur->right);
                 }
+                // 可以想象，当这个for循环结束的时候，queue里面存放的其实已经是下一层的所有结点了。
             }
             res.push_back(temp);
         }
