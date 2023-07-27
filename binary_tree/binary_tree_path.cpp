@@ -11,7 +11,7 @@
  */
 class Solution {
 private: void backtracking(TreeNode* root, vector<string>& res, vector<int>& path) {
-    // 单层处理逻辑
+    // 单层处理操作 
     path.push_back(root->val);
     // 到叶子结点了，收集结果。
     if (!root->left && !root->right) {
