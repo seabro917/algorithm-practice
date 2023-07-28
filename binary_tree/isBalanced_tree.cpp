@@ -11,6 +11,8 @@
  */
 class Solution {
 private:
+    // 这个函数这里其实还是用来求以输入结点为根节点的子树的高度（所以最后还是求了个左右子树的max）。
+    // 唯一变化是这里我们用-1来标记当前遍历到的子树已经不满足对称二叉树性质，继续往上层遍历的时候只要遇到-1直接返回false即可（-1就是代表false）。
     int getHeight(TreeNode* root) {
         if (root == nullptr) {
             return 0;
