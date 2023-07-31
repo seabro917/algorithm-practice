@@ -38,3 +38,32 @@ public:
 // 其实又会进入到下一层递归，可以得到root==5这一层递归的返回值为0（因为5的左右均为空），所以在root==7这一层递归，运行到int left_sum = sumOfLeftLeaves(root->left);的时候
 // left_sum = 0. 程序继续运行到下一行,这时候我们可以发现根据if判断,root->left(也就是5)会被判定成左叶子结点,于是本来值为0的left_sum会被更新成5.这就是这个解法中对于左叶子结点的特殊处理
 //     ----> 先统一管理值,然后单独判断左叶子结点,更新值.
+
+
+// 迭代法
+class Solution {
+public:
+    int sumOfLeftLeaves(TreeNode* root) {
+        queue<TreeNode*> que;
+        int result = 0;
+        if (root == nullptr) {
+            return result;
+        }
+        que.push(root);
+        while (!que.empty()) {
+            int size = que.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode* temp = que.front();
+                que.pop();
+                // 遇到左叶子结点.
+                if (temp->left != nullptr && temp->left->left == nullptr & temp->left->right == nullptr) {
+                    result += temp->left->val;
+                }
+                // 一开始这里居然忘了写if判断直接把空指针存入队列报错了...
+                if (temp->left) que.push(temp->left);
+                if (temp->right) que.push(temp->right);
+            }
+        }
+        return result;
+    }
+};
