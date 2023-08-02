@@ -62,10 +62,13 @@ public:
                 que_1.push(temp_1->right);
                 que_2.push(temp_2->right);
             }
+
+            // 以temp_1（root1）为基准，如果root1没有左但是root2有左，则直接赋值过去
             if (!temp_1->left && temp_2->left) {
                 temp_1->left = temp_2->left; 
                 // que_2.push(temp_2->left);
             }
+            // 和上面的逻辑一样，如果root1没有右但是root2有右，那么也是直接赋值过去。
             if (!temp_1->right && temp_2->right) {
                 temp_1->right = temp_2->right; 
                 // que_2.push(temp_2->right);
