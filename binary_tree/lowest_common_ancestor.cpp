@@ -19,6 +19,18 @@ public:
         if (root == p || root == q) {
             return root;
         }
+// 上面这个一条判断其实涵盖了下面这种情况，比如p=5， q=6
+//       1
+//      / \
+//     6   2
+//    /\   /\
+//   7  7 7  7
+//     /\
+//    5 11
+// 从下往上递归到6的时候（root=6），left返回的是null，right返回的是5，在往上返回的时候，root=1，left=6（因为root->left == q），left=null，所以最后找到了6.
+
+
+
         TreeNode* left = lowestCommonAncestor(root->left, p, q);
         TreeNode* right = lowestCommonAncestor(root->right, p, q);
 
