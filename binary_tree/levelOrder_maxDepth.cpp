@@ -9,6 +9,24 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// leetcode 104
+// 递归写法
+class Solution {
+public:
+    // 后续遍历从叶子结点往上依次传递结果。
+    int maxDepth(TreeNode* root) {
+        if (!root) {
+            return 0;
+        }
+        int left = maxDepth(root->left);
+        int right = maxDepth(root->right);
+        return max(left, right) + 1;
+    }
+};
+
+
+// 迭代写法
 class Solution {
 public:  
     int maxDepth(TreeNode* root) {
