@@ -61,6 +61,7 @@ public:
                 return false;
             }
             // 压入队列的时候要保证对应。
+            // 这里有一个点要注意，之前的用队列遍历的情况这里都要判断不为空才push到队列内，这一题不用判断是因为我们之后要判断是否对应结点有空，所以先不管它是不是空，我们都先放到队列内。
             que.push(left_temp->left);
             que.push(right_temp->right);
             que.push(left_temp->right);
