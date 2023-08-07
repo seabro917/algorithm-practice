@@ -9,6 +9,29 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+
+// 递归法
+class Solution {
+public:
+    // 和求最大深度不同的地方在于这里根据最小深度的定义，如果一个结点左右孩子有一个为空，那么需要看它不为空的那一个子树，而不是直接返回0.
+    int minDepth(TreeNode* root) {
+        if (!root) {
+            return 0;
+        }
+        if (!root->left && root->right) {
+            return minDepth(root->right) + 1;
+        }
+        if (root->left && !root->right) {
+            return minDepth(root->left) + 1;
+        }
+        else {
+            return min(minDepth(root->left), minDepth(root->right)) + 1;
+        }
+    }
+};
+
+// 迭代法
 class Solution {
 public:
     int minDepth(TreeNode* root) {
