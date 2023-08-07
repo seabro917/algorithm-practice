@@ -10,25 +10,25 @@
  * };
  */
 
-// //  dfs
-// class Solution {
-// public:
-//     TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
-//         if (!root1) {
-//             return root2;
-//         }
-//         if (!root2) {
-//             return root1;
-//         }
+//  dfs
+class Solution {
+public:
+    TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+        if (!root1) {
+            return root2;
+        }
+        if (!root2) {
+            return root1;
+        }
 
-//         // 剩下的逻辑就是两个根节点都不为空,直接执行单层操作逻辑两个相加即可.
-//         root1->val += root2->val;
+        // 剩下的逻辑就是两个根节点都不为空,直接执行单层操作逻辑两个相加即可.
+        root1->val += root2->val;
 
-//         root1->left = mergeTrees(root1->left, root2->left);
-//         root1->right = mergeTrees(root1->right, root2->right);
-//         return root1;
-//     }
-// };
+        root1->left = mergeTrees(root1->left, root2->left);
+        root1->right = mergeTrees(root1->right, root2->right);
+        return root1;
+    }
+};
 
 // bfs
 class Solution {
