@@ -14,6 +14,8 @@ public:
                 dp[j] = max(dp[j], dp[j - stones[i]] + stones[i]);
             }
         }
+        // 一个子集的和为dp[target]，另一个为sum - dp[target]。
+        // “在计算target的时候，target = sum / 2 因为是向下取整，所以sum - dp[target] 一定是大于等于dp[target]的。”
         return sum - dp[target] - dp[target];
     }
 };
