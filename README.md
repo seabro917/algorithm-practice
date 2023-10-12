@@ -5,7 +5,7 @@ Most of the solutions are based on or adapted from this [link (代码随想录)]
 
 Please note that I am using Chinese for the comments & explanations in the solutions.
 
-## Updates (on 06/10/2023) 
+## Updates (on 12/10/2023) 
 
 (I will update each question's link here when I go through them for the second round in the near future.)
 - Link List (链表) The implementation code of the link list is taken from [here](https://blog.csdn.net/ccblogger/article/details/81176338).
