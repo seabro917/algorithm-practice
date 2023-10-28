@@ -15,6 +15,7 @@ public:
             }
             // 当前h满足条件，即有大于等于h篇文章被cite的次数大于等于h次
             if (num_count >= max_val) {
+                // 因为要找的是最大的，且外循环是从大到小遍历，所以一旦找到符合条件的直接返回
                 res = max_val;
                 break;
             }
