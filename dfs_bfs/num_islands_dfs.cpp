@@ -11,7 +11,7 @@ private:
             if (next_x < 0 || next_x >= grid.size() || next_y < 0 || next_y >= grid[0].size()) {
                 continue;
             }
-            // 如果这个点也是海水，那么因为他和输入的结点相邻，我们必须把他标记成visited，这样在主函数里面就不会再被记录一次
+            // 如果这个点也是岛屿，那么因为他和输入的结点相邻，我们必须把他标记成visited，这样在主函数里面就不会再被记录一次
             if (grid[next_x][next_y] == '1' && !visited[next_x][next_y]) {
                 visited[next_x][next_y] = true;
                 dfs(grid, visited, next_x, next_y);
