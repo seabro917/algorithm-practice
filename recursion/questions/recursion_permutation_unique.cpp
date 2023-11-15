@@ -7,6 +7,9 @@ class Solution {
 
         // 逃课写法，直接调用C++的sort和unique去重。
         // 相比无重复元素的全排列只多了这两行。
+        // unique返回的是不重复元素的最后一个位置
+        // erase(a, b)是删掉数组里面a到b位置的元素
+        // 综上 这两行实现了去重
         sort(result.begin(),result.end());
         result.erase(unique(result.begin(),result.end()),result.end());
         
