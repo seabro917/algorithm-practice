@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// leetcode 55
 class Solution {
 public:
     bool canJump(vector<int>& nums) {
@@ -31,6 +32,7 @@ public:
                cout << k << endl; 
                return false;
             }
+            // k记录的是到目前位置，最大的可能的能跳到的下标位置.
             k = max(k, i + nums[i]);
         }
         return true;
