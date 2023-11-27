@@ -3,6 +3,9 @@
 // https://leetcode.cn/problems/valid-sudoku/solutions/1002073/gong-shui-san-xie-yi-ti-san-jie-ha-xi-bi-ssxp/?envType=study-plan-v2&envId=top-interview-150
 // 因为只是根据borad中已经填好的数字要判断是否为有效合法的数独,直接对三个条件(每个行,列,区域内每个数字只出现依次)进行判断即可
 // 用到了之前赎罪信的哈希数组思想
+
+// 数位哈希详细注释题解
+// https://leetcode.cn/problems/valid-sudoku/solutions/1270130/jie-zhu-wei-yun-suan-rang-su-du-fei-qi-l-8p60/?envType=study-plan-v2&envId=top-interview-150
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
