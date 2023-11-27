@@ -1,6 +1,8 @@
 // leetcode 36
 // 哈希
 // https://leetcode.cn/problems/valid-sudoku/solutions/1002073/gong-shui-san-xie-yi-ti-san-jie-ha-xi-bi-ssxp/?envType=study-plan-v2&envId=top-interview-150
+// 因为只是根据borad中已经填好的数字要判断是否为有效合法的数独,直接对三个条件(每个行,列,区域内每个数字只出现依次)进行判断即可
+// 用到了之前赎罪信的哈希数组思想
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
@@ -14,6 +16,7 @@ public:
                     continue;
                 }
                 int cur_int = cur - '1';
+                // 根据行和列号对应到的区域编号
                 int area_index = (i / 3) * 3 + j / 3;
                 if (row_check[i][cur_int] == 1 || col_check[j][cur_int] == 1 || area_check[area_index][cur_int] == 1) {
                     // cout << i << endl;
