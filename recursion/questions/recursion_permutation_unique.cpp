@@ -1,4 +1,5 @@
 // leetcode 46
+// 全排列去重 逃课写法
 class Solution {
   public:
     vector<vector<int> > permuteUnique(vector<int>& num) {
@@ -39,6 +40,50 @@ class Solution {
         temp = b;
         b = a;
         a = temp;
+    }
+};
+
+
+
+
+
+
+
+// leetcode 47
+// 去重全排列
+// 非逃课写法
+class Solution {
+private:
+    void backtracking(vector<int>& nums, vector<bool>& used, vector<int>& path, vector<vector<int>>& res) {
+        if (path.size() == nums.size()) {
+            res.push_back(path);
+            return;
+        }
+        // 和组合类型题目相比,不需要startIndex,因为每次都可以取前面的数字
+        for (int i = 0; i < nums.size(); i++) {
+            // 同层相同的数字不取
+            if (i > 0 && used[i - 1] == false && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            if (!used[i]) {
+                used[i] = true;
+                path.push_back(nums[i]);
+                backtracking(nums, used, path, res);
+                path.pop_back();
+                used[i] = false;
+            }
+        }
+    }
+public:
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        vector<bool> used(nums.size(), false);
+        vector<vector<int>> res;
+        vector<int> path;
+        // 去重问题要在回溯前排序,这样去重那一行逻辑才正确
+        sort(nums.begin(), nums.end());
+        backtracking(nums, used, path, res);
+        return res;
+        
     }
 };
 
