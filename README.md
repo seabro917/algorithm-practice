@@ -8,7 +8,7 @@ Please note that I am using Chinese for the comments & explanations in the solut
 ## Updates (on 1712/2023) 
 
 (I will update each question's link here when I go through them for the second round in the near future.)
-- Link List (链表) The implementation code of the link list is taken from [here](https://blog.csdn.net/ccblogger/article/details/81176338).
+- Linked List (链表) The implementation code of the link list is taken from [here](https://blog.csdn.net/ccblogger/article/details/81176338).
 - Recursion and traversal (递归与回溯)
 - Hash (哈希)
 - Array, sliding window, search, and double pointers (数组，滑动窗口，查找以及双指针法)
