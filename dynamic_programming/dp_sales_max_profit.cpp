@@ -24,3 +24,24 @@ public:
         return dp[n];
     }
 };
+
+
+// 仿照leetcode 1235的该问题普遍写法
+class Solution {
+public:
+    int maximizeTheProfit(int n, vector<vector<int>>& offers) {
+        int size = offers.size();
+        vector<int> dp(size + 1);
+        // 按照结束下标(其实就是结束时间)升序排序
+        sort(offers.begin(), offers.end(), [&](vector<int>& a, vector<int>& b) -> bool {return a[1] < b[1];});
+        for (int i = 0; i < size; i++) {
+            // 不考虑第i个offer(也就是不管第i个工作)和只考虑第i个offer的情况
+            dp[i + 1] = max(dp[i], offers[i][2]);
+            // 最接近第i个offer的前一个offer
+            // 相比leetcode 1235,这里求到的upperbound的边界要-1(offers[i][0] - 1),这是因为本题中一个结束了不能马上同时开始,必须要在下一个时间点开始
+            int j = upper_bound(offers.begin(), offers.begin() + i, offers[i][0] - 1, [&](int x, auto& offer) -> bool {return x < offer[1];}) - offers.begin();
+            dp[i + 1] = max(dp[i + 1], dp[j] + offers[i][2]);
+        }
+        return dp[size];
+    }
+};
