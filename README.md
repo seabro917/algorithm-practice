@@ -5,13 +5,14 @@ Part of the solutions are based on or adapted from this [link (代码随想录)]
 
 Please note that I am using Chinese for the comments & explanations in the solutions.
 
-## Updates (on 27/12/2023) 
+## Updates (on 31/12/2023) 
 
 (I will update each question's link here when I go through them for the second round in the near future.)
 - Linked List (链表) The implementation code of the link list is taken from [here](https://blog.csdn.net/ccblogger/article/details/81176338).
 - Recursion and Traversal (回溯与递归)
 - Hash (哈希)
 - Array, Sliding window, and Double Pointers (数组，滑动窗口以及双指针法)
+- Math, Simulation (数学,模拟)
 - Binary Search (二分查找)
 - Greedy (贪心算法)
 - String (字符串)
