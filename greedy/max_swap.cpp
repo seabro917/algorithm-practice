@@ -35,6 +35,7 @@ public:
             idx[i] = maxIdx;
         }
         // 从左向右遍历,当前位置的idx数组内的对应的值和自身不同的,直接交换并且停止循环
+        // 从左向右遍历的顺序体现了另一个贪心:使最左边的小的数和大数交换
         for (int i = 0; i < numStr.size(); i++) {
             if (numStr[i] != numStr[idx[i]]) {
                 swap(numStr[i], numStr[idx[i]]);
